@@ -1,0 +1,9 @@
+.menu-bar {
+    -fx-background-color: #FFB6C1;
+}
+.menu-bar .label {
+    -fx-text-fill: white;
+}
+.custom-toolbar {
+    -fx-background-color: #000000;
+}
