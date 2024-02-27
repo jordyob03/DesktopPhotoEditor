@@ -6,6 +6,8 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.VBox?>
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
@@ -40,22 +42,27 @@
         </MenuBar>
     </top>
 
+
     <!-- Center - Space to display photo -->
     <center>
-        <ImageView fx:id="imageView" fitWidth="1500" fitHeight="800" preserveRatio="true" />
+        <ImageView fx:id="imageView" fitWidth="800" fitHeight="800" preserveRatio="true" />
     </center>
+
+    <!-- Right Side Panel for Lighting Controls -->
+    <right>
+        <VBox spacing="10" style="-fx-background-color: black; -fx-padding: 10px;">
+            <Slider fx:id="brightnessSlider" min="0" max="200" value="100" showTickLabels="true" showTickMarks="true" majorTickUnit="10" minorTickCount="3" blockIncrement="5"/>
+            <Slider fx:id="contrastSlider" min="0" max="200" value="100" showTickLabels="true" showTickMarks="true" majorTickUnit="10" minorTickCount="3" blockIncrement="5"/>
+            <Slider fx:id="exposureSlider" min="0" max="200" value="100" showTickLabels="true" showTickMarks="true" majorTickUnit="10" minorTickCount="3" blockIncrement="5"/>
+        </VBox>
+    </right>
 
     <!-- Bottom Toolbar -->
     <bottom>
         <ToolBar stylesheets="@style.css" styleClass="custom-toolbar">
-            <Button text = "Cropping">
-            </Button>
-            <Button text = "Lighting Controls">
-            </Button>
-            <Button text="Filters">
-            </Button>
-            <Button text="Drawing tool">
-            </Button>
+            <Button text="Cropping"/>
+            <Button text="Filters"/>
+            <Button text="Drawing tool"/>
         </ToolBar>
     </bottom>
 </BorderPane>
