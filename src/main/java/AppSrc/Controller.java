@@ -7,87 +7,81 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Slider;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class Controller {
+public class Controller implements Initializable {
 
     private Stage primaryStage;
 
     @FXML
     private ImageView imageView;
 
-    public void setPrimaryStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
+
+    @FXML
+    private Slider brightnessSlider;
+
+    @FXML
+    private Slider contrastSlider;
+
+    @FXML
+    private Slider exposureSlider;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Add change listeners to sliders
+        brightnessSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+
+            AppContext.BrightnessPercent = newValue.intValue();
+            LightingCommand newCommand = new LightingCommand(AppContext);
+            newCommand.Execute();
+            updateDisplayedImage();
+        });
+
+        contrastSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+        });
+
+        exposureSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+        });
     }
 
-    private Context context;
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
+    private Context AppContext =  Context.getInstance();
 
 
+    // Todo: Make file browser only show .jpg and .png files
     // Method to handle opening a file
     @FXML
     private void openFile() {
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open File");
         File selectedFile = fileChooser.showOpenDialog(primaryStage);
 
-
-        context.LoadedPhoto = new Photo(selectedFile);
-
-        if (context.LoadedPhoto.bufferedImage != null) {
-            try {
-                // Duplicate the selected photo
-                System.out.println(context.LoadedPhoto.bufferedImage);
-                Image fxImage = context.LoadedPhoto.toFXImage(context.LoadedPhoto.bufferedImage);
-
-                // Display the image in the ImageView
-                imageView.setImage(fxImage);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                showAlert("Error", "Failed to open the file.", Alert.AlertType.ERROR);
-            }
+        if(selectedFile != null){
+            AppContext.LoadedPhoto = new Photo(selectedFile);
+            updateDisplayedImage();
         }
     }
 
-    private String getFileExtension(String filePath) {
-        int lastIndex = filePath.lastIndexOf('.');
-        if (lastIndex == -1) {
-            return ""; // No extension found
-        }
-        return filePath.substring(lastIndex + 1);
-    }
-
-    private void saveImageToFile(String sourceFilePath, String destinationFilePath) throws IOException {
-        FileInputStream inputStream = null;
-        FileOutputStream outputStream = null;
+    private void updateDisplayedImage(){
         try {
-            inputStream = new FileInputStream(sourceFilePath);
-            outputStream = new FileOutputStream(destinationFilePath);
+            // Get and display image
+            Image fxImage = AppContext.LoadedPhoto.toFXImage(AppContext.LoadedPhoto.DisplayedImage);
+            //Image fxImage = (Image) AppContext.LoadedPhoto.DisplayedImage;
+            imageView.setImage(fxImage);
 
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = inputStream.read(buffer)) > 0) {
-                outputStream.write(buffer, 0, length);
-            }
-        } finally {
-            if (inputStream != null) {
-                inputStream.close();
-            }
-            if (outputStream != null) {
-                outputStream.close();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to open the file.", Alert.AlertType.ERROR);
         }
+
     }
 
-
-    // Method to display an alert dialog
+    // Method to display an alert
     private void showAlert(String title, String content, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

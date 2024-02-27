@@ -1,7 +1,20 @@
 package AppSrc;
 
+// Singleton class for current application context
 public class Context {
 
-    public Photo LoadedPhoto;
+    private static Context instance;
 
+    public int BrightnessPercent = 100;
+
+    public Photo LoadedPhoto; // Photo loaded into application
+
+    private Context() {
+    }
+    public static Context getInstance() {
+        if (instance == null) {
+            instance = new Context();
+        }
+        return instance;
+    }
 }
