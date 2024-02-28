@@ -37,7 +37,7 @@ public class Controller implements Initializable {
         brightnessSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
 
             AppContext.BrightnessPercent = newValue.intValue();
-            LightingCommand newCommand = new LightingCommand(AppContext);
+            BrightnessCommand newCommand = new BrightnessCommand(AppContext);
             newCommand.Execute();
             updateDisplayedImage();
         });
@@ -65,6 +65,14 @@ public class Controller implements Initializable {
             AppContext.LoadedPhoto = new Photo(selectedFile);
             updateDisplayedImage();
         }
+    }
+
+    @FXML
+    private void SaveAsFile(){
+
+
+
+
     }
 
     private void updateDisplayedImage(){
