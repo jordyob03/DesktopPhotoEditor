@@ -2,13 +2,9 @@ package AppSrc;
 
 import java.awt.image.BufferedImage;
 
-public class LightingCommand extends Command {
+public class BrightnessCommand extends Command {
 
-    int BrightnessPercent;
-    int ContrastPercent;
-    int ExposurePercent;
-
-    Context AppContext;
+    private Context AppContext;
 
     // TODO: Implement contrast and exposure changes
     @Override
@@ -45,11 +41,10 @@ public class LightingCommand extends Command {
 
             }
         }
-
         AppContext.LoadedPhoto.DisplayedImage = newImage;
     }
 
-    public  LightingCommand(Context context){
+    public  BrightnessCommand(Context context){
         this.AppContext = context;
     }
 
