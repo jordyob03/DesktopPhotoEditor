@@ -9,6 +9,7 @@ public class Context {
 
     public Photo LoadedPhoto; // Photo loaded into application
 
+    public String OpenedFilePath;
     public String SaveFilePath;
 
     private Context() {
