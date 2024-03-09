@@ -22,7 +22,7 @@
                     <items>
                         <MenuItem text="Open" onAction="#openFile"/>
                         <MenuItem text="Save As" onAction="#SaveAsFile"/>
-                        <MenuItem text="Save"/>
+                        <MenuItem text="Save" onAction="#SaveFile"/>
                     </items>
                 </Menu>
                 <Menu text="Edit">
