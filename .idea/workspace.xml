@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Added contrast controls">
-      <change afterPath="$PROJECT_DIR$/src/main/java/AppSrc/ExposureCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +28,20 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "MatthewJones23"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="ee0bce3d-6f0d-4992-bb45-8b9dc329f616" />
+        <option name="url" value="https://github.com/jordyob03/DesktopPhotoEditor.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 0
@@ -139,7 +150,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710080228922</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added contrast controls">
+      <option name="closed" value="true" />
+      <created>1710082158558</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1710082158558</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added contrast controls">
+      <option name="closed" value="true" />
+      <created>1710082204498</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710082204498</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,6 +196,7 @@
     <MESSAGE value="Testing" />
     <MESSAGE value="Implemented brightness controls" />
     <MESSAGE value="test" />
+    <MESSAGE value="Added exposure controls" />
     <MESSAGE value="Added contrast controls" />
     <option name="LAST_COMMIT_MESSAGE" value="Added contrast controls" />
   </component>
