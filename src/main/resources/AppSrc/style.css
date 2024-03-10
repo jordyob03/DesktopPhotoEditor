@@ -1,9 +1,68 @@
 .menu-bar {
-    -fx-background-color: #FFB6C1;
+    -fx-background-color: #27262F;
 }
 .menu-bar .label {
-    -fx-text-fill: white;
+    -fx-text-fill: #FFFFFF;
 }
-.custom-toolbar {
-    -fx-background-color: #000000;
+.menu-bar .menu-button {
+    -fx-background-color: #27262F;
+}
+.menu-bar .context-menu {
+    -fx-background-color: #27262F;
+}
+.menu-bar .context-menu .menu-item {
+    -fx-background-color: #27262F;
+}
+.menu-bar .context-menu .menu-item:hover {
+    -fx-background-color: #C9B5FC;
+}
+.centre{
+    -fx-alignment: center;
+    -fx-background-color: #1A1922;
+}
+.right-menu{
+    -fx-background-color: #27262F;
+    -fx-padding: 10px;
+    -fx-border-color: #999999;
+    -fx-border-width: 1px;
+}
+.slider-label {
+    -fx-text-fill: #FFFFFF;
+}
+.slider {
+    -fx-background-color: transparent;
+}
+.slider .track {
+    -fx-background-color: #C5BBD6;
+}
+.slider .thumb {
+    -fx-background-color: #ECB0C0;
+    -fx-padding: 8px;
+}
+.slider .tick-mark {
+    -fx-fill: #EFAFAD;
+}
+
+.cropping-button,
+.filters-button,
+.drawing-button {
+    -fx-background-color: #C5BBD6; /* Background color */
+    -fx-text-fill: white; /* Text color */
+    -fx-font-size: 14px; /* Font size */
+    -fx-padding: 8px 16px; /* Padding */
+    -fx-background-radius: 4px; /* Border radius */
+    -fx-border-radius: 4px; /* Border radius */
+    -fx-border-color: transparent; /* Border color */
+}
+
+.cropping-button:hover,
+.filters-button:hover,
+.drawing-button:hover {
+    -fx-background-color: #ECB0C0 ; /* Background color on hover */
+}
+
+.cropping-button:pressed,
+.filters-button:pressed,
+.drawing-button:pressed {
+    -fx-background-color: #ECB0C0 ; /* Background color when pressed */
 }

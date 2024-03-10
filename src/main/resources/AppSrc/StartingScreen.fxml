@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
@@ -16,8 +17,7 @@
 
     <!-- Top Menu Bar -->
     <top>
-        <MenuBar>
-            <menus>
+        <MenuBar stylesheets="@style.css" styleClass="menu-bar">
                 <Menu text="File">
                     <items>
                         <MenuItem text="Open" onAction="#openFile"/>
@@ -38,31 +38,30 @@
                         <MenuItem text="Filter"/>
                     </items>
                 </Menu>
-            </menus>
         </MenuBar>
     </top>
-
-
     <!-- Center - Space to display photo -->
     <center>
-        <ImageView fx:id="imageView" fitWidth="800" fitHeight="800" preserveRatio="true" />
+        <VBox stylesheets="@style.css" styleClass="centre">
+            <ImageView fx:id="imageView" fitWidth="800" fitHeight="800" preserveRatio="true" />
+        </VBox>
     </center>
 
     <!-- Right Side Panel for Lighting Controls -->
     <right>
-        <VBox spacing="10" style="-fx-background-color: black; -fx-padding: 10px;">
-            <Slider fx:id="brightnessSlider" min="0" max="200" value="100" showTickLabels="true" showTickMarks="true" majorTickUnit="10" minorTickCount="3" blockIncrement="5"/>
-            <Slider fx:id="contrastSlider" min="0" max="200" value="100" showTickLabels="true" showTickMarks="true" majorTickUnit="10" minorTickCount="3" blockIncrement="5"/>
-            <Slider fx:id="exposureSlider" min="0" max="200" value="100" showTickLabels="true" showTickMarks="true" majorTickUnit="10" minorTickCount="3" blockIncrement="5"/>
+        <VBox spacing="10" stylesheets="@style.css" styleClass="right-menu">
+            <Label text="Brightness" styleClass="slider-label"/>
+            <Slider fx:id="brightnessSlider" min="0" max="200" value="100" showTickLabels="false" showTickMarks="false" majorTickUnit="10" minorTickCount="3" blockIncrement="5" styleClass="slider"/>
+            <Label text="Contrast" styleClass="slider-label"/>
+            <Slider fx:id="contrastSlider" min="0" max="200" value="100" showTickLabels="false" showTickMarks="falss" majorTickUnit="10" minorTickCount="3" blockIncrement="5" styleClass="slider"/>
+            <Label text="Exposure" styleClass="slider-label"/>
+            <Slider fx:id="exposureSlider" min="0" max="200" value="100" showTickLabels="false" showTickMarks="false" majorTickUnit="10" minorTickCount="3" blockIncrement="5" styleClass="slider"/>
+
+            <Button text="Cropping" styleClass="cropping-button"/>
+            <Button text="Filters" styleClass="filters-button"/>
+            <Button text="Drawing tool" styleClass="drawing-button"/>
         </VBox>
     </right>
 
-    <!-- Bottom Toolbar -->
-    <bottom>
-        <ToolBar stylesheets="@style.css" styleClass="custom-toolbar">
-            <Button text="Cropping"/>
-            <Button text="Filters"/>
-            <Button text="Drawing tool"/>
-        </ToolBar>
-    </bottom>
+
 </BorderPane>
