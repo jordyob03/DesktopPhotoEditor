@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Slider;
+import javax.imageio.ImageIO;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +21,6 @@ public class Controller implements Initializable {
 
     @FXML
     private ImageView imageView;
-
 
     @FXML
     private Slider brightnessSlider;
@@ -63,23 +63,61 @@ public class Controller implements Initializable {
 
         if(selectedFile != null){
             AppContext.LoadedPhoto = new Photo(selectedFile);
+            AppContext.OpenedFilePath = selectedFile.getAbsolutePath();
             updateDisplayedImage();
+        }
+    }
+    // Method to handle choosing a directory and saving the image there
+    @FXML
+    private void SaveAsFile(){
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open File");
+        FileChooser.ExtensionFilter pngExtFilter = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.png");
+        FileChooser.ExtensionFilter jpgExtFilter = new FileChooser.ExtensionFilter("JPEG files (*.jpg)", "*.jpg");
+        fileChooser.getExtensionFilters().add(pngExtFilter);
+        fileChooser.getExtensionFilters().add(jpgExtFilter);
+        File selectedFile = fileChooser.showSaveDialog(primaryStage);
+
+        // Store new file path
+        AppContext.SaveFilePath = selectedFile.getAbsolutePath();
+
+        if (selectedFile != null) {
+            try {
+                ImageIO.write(AppContext.LoadedPhoto.DisplayedImage, "png", selectedFile);
+
+                // Store new file path
+                AppContext.SaveFilePath = selectedFile.getAbsolutePath();
+            } catch (Exception e) {
+                e.printStackTrace();
+                showAlert("Error", "Failed to save the file.", Alert.AlertType.ERROR);
+            }
         }
     }
 
     @FXML
-    private void SaveAsFile(){
+    private void SaveFile(){
 
-
-
-
+        if(AppContext.SaveFilePath == null){
+            SaveAsFile();
+            return;
+        }
+        else{
+            File file = new File(AppContext.SaveFilePath);
+            try{
+                ImageIO.write(AppContext.LoadedPhoto.DisplayedImage, "png", file);
+            }
+            catch(Exception e) {
+                e.printStackTrace();
+                showAlert("Error", "Failed to save the file.", Alert.AlertType.ERROR);
+            }
+        }
     }
 
     private void updateDisplayedImage(){
         try {
             // Get and display image
             Image fxImage = AppContext.LoadedPhoto.toFXImage(AppContext.LoadedPhoto.DisplayedImage);
-            //Image fxImage = (Image) AppContext.LoadedPhoto.DisplayedImage;
             imageView.setImage(fxImage);
 
         } catch (Exception e) {
