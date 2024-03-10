@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Added contrast controls">
+      <change afterPath="$PROJECT_DIR$/src/main/java/AppSrc/ExposureCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +32,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
   <component name="ProjectId" id="2beoa1nrTwxiLp41e0WFq3YN1ko" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -41,7 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Contrast",
+    "git-widget-placeholder": "Exposure",
     "last_opened_file_path": "/Users/jordynobrien/Documents/Term 5/ECE 5010/PhotoEditorFx/src/main/UI/AppSrc",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
@@ -85,6 +91,14 @@
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-868cef46" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

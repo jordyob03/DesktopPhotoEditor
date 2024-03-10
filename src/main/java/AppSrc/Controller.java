@@ -50,6 +50,10 @@ public class Controller implements Initializable {
         });
 
         exposureSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            AppContext.ExposurePercent = newValue.intValue();
+            ExposureCommand newCommand = new ExposureCommand(AppContext);
+            newCommand.Execute();
+            updateDisplayedImage();
         });
     }
 
