@@ -43,9 +43,17 @@ public class Controller implements Initializable {
         });
 
         contrastSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            AppContext.ContrastPercent = newValue.intValue();
+            ContrastCommand newCommand = new ContrastCommand(AppContext);
+            newCommand.Execute();
+            updateDisplayedImage();
         });
 
         exposureSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            AppContext.ExposurePercent = newValue.intValue();
+            ExposureCommand newCommand = new ExposureCommand(AppContext);
+            newCommand.Execute();
+            updateDisplayedImage();
         });
     }
 

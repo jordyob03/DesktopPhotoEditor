@@ -7,6 +7,10 @@ public class Context {
 
     public int BrightnessPercent = 100;
 
+    public double ContrastPercent = 100.0;
+
+    public double ExposurePercent = 100.0;
+
     public Photo LoadedPhoto; // Photo loaded into application
 
     public String OpenedFilePath;
