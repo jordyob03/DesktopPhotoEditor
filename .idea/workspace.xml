@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Got save and save as working">
+    <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Added contrast controls">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,9 +37,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Contrast",
     "last_opened_file_path": "/Users/jordynobrien/Documents/Term 5/ECE 5010/PhotoEditorFx/src/main/UI/AppSrc",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
@@ -80,6 +82,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -106,7 +109,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709060450856</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="test">
+      <option name="closed" value="true" />
+      <created>1710077502583</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1710077502583</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added contrast controls">
+      <option name="closed" value="true" />
+      <created>1710080228922</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710080228922</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,6 +154,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Testing" />
     <MESSAGE value="Implemented brightness controls" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented brightness controls" />
+    <MESSAGE value="test" />
+    <MESSAGE value="Added contrast controls" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added contrast controls" />
   </component>
 </project>
