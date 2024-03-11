@@ -9,6 +9,11 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ScrollPane?>
+
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
@@ -49,7 +54,7 @@
 
     <!-- Right Side Panel for Lighting Controls -->
     <right>
-        <VBox spacing="10" stylesheets="@style.css" styleClass="right-menu">
+        <VBox spacing="10" stylesheets="@style.css" styleClass="right-menu" prefWidth="200">
             <Label text="Brightness" styleClass="slider-label"/>
             <Slider fx:id="brightnessSlider" min="0" max="200" value="100" showTickLabels="false" showTickMarks="false" majorTickUnit="10" minorTickCount="3" blockIncrement="5" styleClass="slider"/>
             <Label text="Contrast" styleClass="slider-label"/>
@@ -57,11 +62,22 @@
             <Label text="Exposure" styleClass="slider-label"/>
             <Slider fx:id="exposureSlider" min="0" max="200" value="100" showTickLabels="false" showTickMarks="false" majorTickUnit="10" minorTickCount="3" blockIncrement="5" styleClass="slider"/>
 
-            <Button text="Cropping" styleClass="cropping-button"/>
-            <Button text="Filters" styleClass="filters-button"/>
-            <Button text="Drawing tool" styleClass="drawing-button"/>
+
         </VBox>
     </right>
+
+    <bottom>
+        <HBox alignment="BOTTOM_LEFT" spacing="10" styleClass="bottom-menu">
+            <Button text="Red" onAction="#SetRed"/>
+            <Button text="Orange" onAction="#SetOrange"/>
+            <Button text="Yellow" onAction="#SetYellow"/>
+            <Button text="Green" onAction="#SetGreen"/>
+            <Button text="Blue" onAction="#SetBlue"/>
+            <Button text="Purple" onAction="#SetPurple"/>
+            <Button text="Pink" onAction="#SetPink"/>
+            <Button text="Black and White" onAction="#SetBW"/>
+        </HBox>
+    </bottom>
 
 
 </BorderPane>
