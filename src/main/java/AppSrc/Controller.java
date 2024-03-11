@@ -17,6 +17,8 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
+    private Context AppContext =  Context.getInstance();
+
     private Stage primaryStage;
 
     @FXML
@@ -56,8 +58,6 @@ public class Controller implements Initializable {
             updateDisplayedImage();
         });
     }
-
-    private Context AppContext =  Context.getInstance();
 
 
     // Todo: Make file browser only show .jpg and .png files
@@ -120,6 +120,54 @@ public class Controller implements Initializable {
                 showAlert("Error", "Failed to save the file.", Alert.AlertType.ERROR);
             }
         }
+    }
+
+    @FXML
+    private void SetRed(){
+        AppContext.CurrentFilter = Filters.RED;
+        ApplyFilter();
+    }
+    @FXML
+    private void SetOrange(){
+        AppContext.CurrentFilter = Filters.ORANGE;
+        ApplyFilter();
+    }
+    @FXML
+    private void SetYellow(){
+        AppContext.CurrentFilter = Filters.YELLOW;
+        ApplyFilter();
+    }
+    @FXML
+    private void SetGreen(){
+        AppContext.CurrentFilter = Filters.GREEN;
+        ApplyFilter();
+    }
+    @FXML
+    private void SetBlue(){
+        AppContext.CurrentFilter = Filters.BLUE;
+        ApplyFilter();
+    }
+    @FXML
+    private void SetPurple(){
+        AppContext.CurrentFilter = Filters.PURPLE;
+        ApplyFilter();
+    }
+    @FXML
+    private void SetPink(){
+        AppContext.CurrentFilter = Filters.PINK;
+        ApplyFilter();
+    }
+    @FXML
+    private void SetBW(){
+        AppContext.CurrentFilter = Filters.BLACKWHITE;
+        ApplyFilter();
+    }
+    private void ApplyFilter(){
+
+        FilterCommand newCommand = new FilterCommand(AppContext);
+        newCommand.Execute();
+        updateDisplayedImage();
+
     }
 
     private void updateDisplayedImage(){

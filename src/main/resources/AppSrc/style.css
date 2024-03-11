@@ -26,6 +26,13 @@
     -fx-border-color: #999999;
     -fx-border-width: 1px;
 }
+.bottom-menu{
+    -fx-background-color: #27262F;
+    -fx-padding: 10px;
+    -fx-border-color: #999999;
+    -fx-border-width: 1px;
+}
+
 .slider-label {
     -fx-text-fill: #FFFFFF;
 }

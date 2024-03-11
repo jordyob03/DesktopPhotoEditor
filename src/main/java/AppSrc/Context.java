@@ -11,6 +11,8 @@ public class Context {
 
     public double ExposurePercent = 100.0;
 
+    Filters CurrentFilter;
+
     public Photo LoadedPhoto; // Photo loaded into application
 
     public String OpenedFilePath;

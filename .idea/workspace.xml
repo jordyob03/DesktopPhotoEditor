@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Added contrast controls" />
+    <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Merged with changes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/AppSrc/FilterCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Filters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AppSrc/StartingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AppSrc/StartingScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AppSrc/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AppSrc/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710082204498</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Merged with changes">
+      <created>1710088807449</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710088807449</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,6 +211,7 @@
     <MESSAGE value="test" />
     <MESSAGE value="Added exposure controls" />
     <MESSAGE value="Added contrast controls" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added contrast controls" />
+    <MESSAGE value="Merged with changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged with changes" />
   </component>
 </project>
