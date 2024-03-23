@@ -1,9 +1,17 @@
 package AppSrc;
 
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+
+
 // Singleton class for current application context
 public class Context {
 
     private static Context instance;
+
+    Scene AppScene;
+
+    AnchorPane root;
 
     public int BrightnessPercent = 100;
 

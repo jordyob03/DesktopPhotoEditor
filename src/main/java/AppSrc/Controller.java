@@ -1,5 +1,7 @@
 package AppSrc;
 
+import Objects.Point2D;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
@@ -11,6 +13,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Slider;
 import javax.imageio.ImageIO;
 
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -57,6 +64,11 @@ public class Controller implements Initializable {
             newCommand.Execute();
             updateDisplayedImage();
         });
+
+        HighlightingRect = new Rectangle();
+        HighlightingRect.setStroke(Color.WHITE);
+        HighlightingRect.setStrokeWidth(2);
+        HighlightingRect.setFill(Color.rgb(255, 255, 255, 0.1));
     }
 
 
@@ -170,6 +182,63 @@ public class Controller implements Initializable {
 
     }
 
+    // Store two coordinates for cropping area
+    private Point2D StartingPixel;
+    private Point2D EndPixel;
+    private Rectangle HighlightingRect;
+    @FXML
+    private void Crop(){
+
+        AppContext.AppScene.setOnMousePressed(this::HandleMousePressedCropping);
+        AppContext.AppScene.setOnMouseDragged(this::HandleMouseDraggedCropping);
+        AppContext.AppScene.setOnMouseReleased(this::HandleMouseReleasedCropping);
+
+        Pane rootPane = (Pane) AppContext.AppScene.getRoot();
+        rootPane.getChildren().add(HighlightingRect);
+
+    }
+
+    private void HandleMousePressedCropping(MouseEvent event) {
+
+        StartingPixel.X = (int) event.getSceneX();
+        StartingPixel.Y = (int) event.getSceneY();
+
+        HighlightingRect.setX(StartingPixel.X);
+        HighlightingRect.setY(StartingPixel.Y );
+        HighlightingRect.setWidth(0);
+        HighlightingRect.setHeight(0);
+    }
+
+    private void HandleMouseDraggedCropping(MouseEvent event) {
+
+        Point2D CurrentPixel = new Point2D();
+
+        CurrentPixel.X = (int) event.getSceneX();
+        CurrentPixel.Y = (int) event.getSceneX();
+
+        double Width = CurrentPixel.X - StartingPixel.X ;
+        double Height = CurrentPixel.Y  - StartingPixel.Y;
+
+        HighlightingRect.setWidth(Math.abs(Width));
+        HighlightingRect.setHeight(Math.abs(Height));
+
+        HighlightingRect.setX(Width > 0 ? StartingPixel.X : CurrentPixel.X);
+        HighlightingRect.setY(Height > 0 ? StartingPixel.Y : CurrentPixel.Y);
+    }
+
+    private void HandleMouseReleasedCropping(MouseEvent event) {
+
+        EndPixel.X = (int) event.getSceneX();
+        EndPixel.Y = (int) event.getSceneY();
+
+        // Remove event handlers and rectangle from the pane
+        Pane rootPane = (Pane) AppContext.AppScene.getRoot();
+        rootPane.getChildren().remove(HighlightingRect);
+        AppContext.AppScene.setOnMousePressed(null);
+        AppContext.AppScene.setOnMouseDragged(null);
+        AppContext.AppScene.setOnMouseReleased(null);
+
+    }
     private void updateDisplayedImage(){
         try {
             // Get and display image

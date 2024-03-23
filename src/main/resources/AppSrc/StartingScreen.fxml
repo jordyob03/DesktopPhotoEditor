@@ -12,7 +12,7 @@
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
 
 
 <BorderPane xmlns="http://javafx.com/javafx"
@@ -61,7 +61,7 @@
             <Slider fx:id="contrastSlider" min="0" max="200" value="100" showTickLabels="false" showTickMarks="falss" majorTickUnit="10" minorTickCount="3" blockIncrement="5" styleClass="slider"/>
             <Label text="Exposure" styleClass="slider-label"/>
             <Slider fx:id="exposureSlider" min="0" max="200" value="100" showTickLabels="false" showTickMarks="false" majorTickUnit="10" minorTickCount="3" blockIncrement="5" styleClass="slider"/>
-
+            <Button text="Crop" onAction="#Crop"/>
 
         </VBox>
     </right>
