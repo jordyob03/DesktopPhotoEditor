@@ -1,6 +1,6 @@
 package AppSrc;
 
-import Objects.Point2D;
+//import Objects.Point2D;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -12,6 +12,10 @@ import java.io.File;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Slider;
 import javax.imageio.ImageIO;
+import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
+
+import javafx.geometry.Point2D;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -40,6 +44,9 @@ public class Controller implements Initializable {
     @FXML
     private Slider exposureSlider;
 
+    @FXML
+    private ToggleButton CropButton;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Add change listeners to sliders
@@ -67,7 +74,7 @@ public class Controller implements Initializable {
 
         HighlightingRect = new Rectangle();
         HighlightingRect.setStroke(Color.WHITE);
-        HighlightingRect.setStrokeWidth(2);
+        HighlightingRect.setStrokeWidth(1);
         HighlightingRect.setFill(Color.rgb(255, 255, 255, 0.1));
     }
 
@@ -179,77 +186,98 @@ public class Controller implements Initializable {
         FilterCommand newCommand = new FilterCommand(AppContext);
         newCommand.Execute();
         updateDisplayedImage();
-
     }
 
-    // Store two coordinates for cropping area
-    private Point2D StartingPixel;
-    private Point2D EndPixel;
     private Rectangle HighlightingRect;
     @FXML
     private void Crop(){
 
-        AppContext.AppScene.setOnMousePressed(this::HandleMousePressedCropping);
-        AppContext.AppScene.setOnMouseDragged(this::HandleMouseDraggedCropping);
-        AppContext.AppScene.setOnMouseReleased(this::HandleMouseReleasedCropping);
+        if(CropButton.isSelected() && AppContext.ImageLoaded){
 
-        Pane rootPane = (Pane) AppContext.AppScene.getRoot();
-        rootPane.getChildren().add(HighlightingRect);
+            AppContext.AppScene.setOnMousePressed(this::HandleMousePressedCropping);
+            AppContext.AppScene.setOnMouseDragged(this::HandleMouseDraggedCropping);
+            AppContext.AppScene.setOnMouseReleased(this::HandleMouseReleasedCropping);
 
+            Pane rootPane = (Pane) AppContext.AppScene.getRoot();
+            rootPane.getChildren().add(HighlightingRect);
+        }
+        else{
+            AppContext.AppScene.setOnMousePressed(null);
+            AppContext.AppScene.setOnMouseDragged(null);
+            AppContext.AppScene.setOnMouseReleased(null);
+
+            Pane rootPane = (Pane) AppContext.AppScene.getRoot();
+            rootPane.getChildren().remove(HighlightingRect);
+        }
     }
 
     private void HandleMousePressedCropping(MouseEvent event) {
 
-        StartingPixel.X = (int) event.getSceneX();
-        StartingPixel.Y = (int) event.getSceneY();
+        // Set first crop point
+        AppContext.CropPoint1 = new Point2D(event.getSceneX(), event.getSceneY());
 
-        HighlightingRect.setX(StartingPixel.X);
-        HighlightingRect.setY(StartingPixel.Y );
+        // Get image coordinates and dimensions relative to screen
+        AppContext.ImageTopLeft = imageView.localToScreen(0, 0);
+
+        Point2D ImageViewBottomRightScreen = imageView.localToScreen(imageView.getBoundsInLocal().getWidth(), imageView.getBoundsInLocal().getHeight());
+        AppContext.ImageWidth = ImageViewBottomRightScreen.getX() - AppContext.ImageTopLeft.getX();
+        AppContext.ImageHeight = ImageViewBottomRightScreen.getY() - AppContext.ImageTopLeft.getY();
+
+        HighlightingRect.setX(AppContext.CropPoint1.getX());
+        HighlightingRect.setY(AppContext.CropPoint1.getY());
         HighlightingRect.setWidth(0);
         HighlightingRect.setHeight(0);
     }
 
     private void HandleMouseDraggedCropping(MouseEvent event) {
 
-        Point2D CurrentPixel = new Point2D();
+        // Current position of the mouse
+        Point2D CurrentPixel = new Point2D(event.getSceneX(), event.getSceneY());
 
-        CurrentPixel.X = (int) event.getSceneX();
-        CurrentPixel.Y = (int) event.getSceneX();
-
-        double Width = CurrentPixel.X - StartingPixel.X ;
-        double Height = CurrentPixel.Y  - StartingPixel.Y;
+        // Update rectangle
+        double Width = CurrentPixel.getX() - AppContext.CropPoint1.getX() ;
+        double Height = CurrentPixel.getY()  - AppContext.CropPoint1.getY();
 
         HighlightingRect.setWidth(Math.abs(Width));
         HighlightingRect.setHeight(Math.abs(Height));
 
-        HighlightingRect.setX(Width > 0 ? StartingPixel.X : CurrentPixel.X);
-        HighlightingRect.setY(Height > 0 ? StartingPixel.Y : CurrentPixel.Y);
+        HighlightingRect.setX(Width > 0 ? AppContext.CropPoint1.getX() : CurrentPixel.getX());
+        HighlightingRect.setY(Height > 0 ? AppContext.CropPoint1.getY() : CurrentPixel.getY());
     }
 
     private void HandleMouseReleasedCropping(MouseEvent event) {
 
-        EndPixel.X = (int) event.getSceneX();
-        EndPixel.Y = (int) event.getSceneY();
+        // Get second cropping point
+        AppContext.CropPoint2 = new Point2D(event.getSceneX(), event.getSceneY());
 
-        // Remove event handlers and rectangle from the pane
+        // Remove event handlers and rectangle
         Pane rootPane = (Pane) AppContext.AppScene.getRoot();
         rootPane.getChildren().remove(HighlightingRect);
         AppContext.AppScene.setOnMousePressed(null);
         AppContext.AppScene.setOnMouseDragged(null);
         AppContext.AppScene.setOnMouseReleased(null);
 
+        // Create cropping command
+        CropCommand newCommand = new CropCommand(AppContext);
+        newCommand.Execute();
+        updateDisplayedImage();
+
+        HighlightingRect.setWidth(0);
+        HighlightingRect.setHeight(0);
+        CropButton.setSelected(false);
     }
     private void updateDisplayedImage(){
         try {
-            // Get and display image
             Image fxImage = AppContext.LoadedPhoto.toFXImage(AppContext.LoadedPhoto.DisplayedImage);
             imageView.setImage(fxImage);
+            AppContext.imageView = imageView;
+            AppContext.ImageLoaded = true;
 
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Error", "Failed to open the file.", Alert.AlertType.ERROR);
+            AppContext.ImageLoaded = false;
         }
-
     }
 
     // Method to display an alert
