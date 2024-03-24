@@ -5,6 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.event.EventHandler;
+
+import javafx.scene.input.MouseEvent;
 
 public class Main extends Application {
 
@@ -18,10 +21,11 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("StartingScreen.fxml"));
 
         Parent root = loader.load();
-        Scene scene = new Scene(root, 1000, 500);
+
+        AppContext.AppScene = new Scene(root, 1000, 500);
 
         stage.setTitle("PhotoEditor");
-        stage.setScene(scene);
+        stage.setScene(AppContext.AppScene);
         stage.setFullScreen(true);
         stage.show();
     }

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.VBox?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
 
 
 <BorderPane xmlns="http://javafx.com/javafx"
@@ -45,6 +46,7 @@
                 </Menu>
         </MenuBar>
     </top>
+
     <!-- Center - Space to display photo -->
     <center>
         <VBox stylesheets="@style.css" styleClass="centre">
@@ -61,8 +63,7 @@
             <Slider fx:id="contrastSlider" min="0" max="200" value="100" showTickLabels="false" showTickMarks="falss" majorTickUnit="10" minorTickCount="3" blockIncrement="5" styleClass="slider"/>
             <Label text="Exposure" styleClass="slider-label"/>
             <Slider fx:id="exposureSlider" min="0" max="200" value="100" showTickLabels="false" showTickMarks="false" majorTickUnit="10" minorTickCount="3" blockIncrement="5" styleClass="slider"/>
-
-
+            <ToggleButton fx:id= "CropButton" text="Crop" onAction="#Crop"/>
         </VBox>
     </right>
 
