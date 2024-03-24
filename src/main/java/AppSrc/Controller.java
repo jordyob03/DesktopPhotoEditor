@@ -80,12 +80,17 @@ public class Controller implements Initializable {
 
 
     // Todo: Make file browser only show .jpg and .png files
+
     // Method to handle opening a file
+
     @FXML
     private void openFile() {
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open File");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
+        );
         File selectedFile = fileChooser.showOpenDialog(primaryStage);
 
         if(selectedFile != null){
