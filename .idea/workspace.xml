@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Fixed UI">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AppSrc/StartingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AppSrc/StartingScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1711374224597</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixed UI">
+      <created>1711375121436</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711375121436</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

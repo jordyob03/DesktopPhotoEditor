@@ -197,6 +197,7 @@ public class Controller implements Initializable {
 
         if(CropButton.isSelected() && AppContext.ImageLoaded){
 
+            DeselectButtons(CropButton);
             AppContext.AppScene.setOnMousePressed(this::HandleMousePressedCropping);
             AppContext.AppScene.setOnMouseDragged(this::HandleMouseDraggedCropping);
             AppContext.AppScene.setOnMouseReleased(this::HandleMouseReleasedCropping);
