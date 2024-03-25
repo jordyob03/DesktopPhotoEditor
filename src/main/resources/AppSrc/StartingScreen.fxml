@@ -40,9 +40,7 @@
                 </Menu>
                 <Menu text="Tools">
                     <items>
-                        <MenuItem text="Crop"/>
                         <MenuItem text="Rotate"/>
-                        <MenuItem text="Filter"/>
                     </items>
                 </Menu>
         </MenuBar>

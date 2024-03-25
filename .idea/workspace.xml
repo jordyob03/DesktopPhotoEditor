@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Merged with changes">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Fixed UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/AppSrc/StartingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AppSrc/StartingScreen.fxml" afterDir="false" />
     </list>
@@ -176,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710088807449</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixed UI">
+      <created>1711374224597</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711374224597</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,6 +215,7 @@
     <MESSAGE value="Added exposure controls" />
     <MESSAGE value="Added contrast controls" />
     <MESSAGE value="Merged with changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merged with changes" />
+    <MESSAGE value="Fixed UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed UI" />
   </component>
 </project>
