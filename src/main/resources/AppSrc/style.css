@@ -73,3 +73,66 @@
 .drawing-button:pressed {
     -fx-background-color: #ECB0C0 ; /* Background color when pressed */
 }
+
+
+
+/* Style for the toggle buttons */
+.marker-button {
+    -fx-background-radius: 0; /* Remove border radius to make them squares */
+    -fx-min-width: 25px; /* Set the minimum width */
+    -fx-min-height: 25px; /* Set the minimum height */
+    -fx-max-width: 25px; /* Set the maximum width */
+    -fx-max-height: 25px; /* Set the maximum height */
+    -fx-background-color: transparent; /* Make the background transparent */
+}
+
+.marker-button:selected{
+    -fx-border-color: white; /* Add white border color */
+    -fx-border-width: 2px;
+}
+.grid-pane {
+    -fx-hgap: 10px; /* Horizontal spacing */
+    -fx-vgap: 10px;
+}
+/* Red toggle button */
+#RedMarker {
+    -fx-background-color: red; /* Set background color to red */
+}
+
+/* Orange toggle button */
+#OrangeMarker {
+    -fx-background-color: orange; /* Set background color to orange */
+}
+
+/* Yellow toggle button */
+#YellowMarker {
+    -fx-background-color: yellow; /* Set background color to yellow */
+}
+
+/* Green toggle button */
+#GreenMarker {
+    -fx-background-color: green; /* Set background color to green */
+}
+
+#BlueMarker {
+    -fx-background-color: blue; /* Set background color to red */
+}
+
+/* Orange toggle button */
+#PurpleMarker {
+    -fx-background-color: purple; /* Set background color to orange */
+}
+
+/* Yellow toggle button */
+#PinkMarker {
+    -fx-background-color: pink; /* Set background color to yellow */
+}
+
+/* Green toggle button */
+#BlackMarker {
+    -fx-background-color: black; /* Set background color to green */
+}
+
+#WhiteMarker {
+    -fx-background-color: white; /* Set background color to green */
+}

@@ -3,6 +3,9 @@ package AppSrc;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import java.util.ArrayList;
+
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,8 +18,16 @@ public class Context {
 
     Scene AppScene;
 
+    // Editing modes
+
+
     public boolean ImageLoaded;
     public ImageView imageView;
+
+    public Color MarkerColor;
+    public boolean MarkerSelected;
+
+    public ArrayList<Point2D> MarkedPixels = new ArrayList<>();
 
     AnchorPane root;
 
