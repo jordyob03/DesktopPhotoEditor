@@ -87,14 +87,14 @@
 
     <bottom>
         <HBox alignment="BOTTOM_LEFT" spacing="10" styleClass="bottom-menu">
-            <Button text="Red" onAction="#SetRed"/>
-            <Button text="Orange" onAction="#SetOrange"/>
-            <Button text="Yellow" onAction="#SetYellow"/>
-            <Button text="Green" onAction="#SetGreen"/>
-            <Button text="Blue" onAction="#SetBlue"/>
-            <Button text="Purple" onAction="#SetPurple"/>
-            <Button text="Pink" onAction="#SetPink"/>
-            <Button text="Black and White" onAction="#SetBW"/>
+            <Button text="Red" onAction="#SetRed" styleClass="filters-button"/>
+            <Button text="Orange" onAction="#SetOrange" styleClass="filters-button"/>
+            <Button text="Yellow" onAction="#SetYellow" styleClass="filters-button"/>
+            <Button text="Green" onAction="#SetGreen" styleClass="filters-button"/>
+            <Button text="Blue" onAction="#SetBlue" styleClass="filters-button"/>
+            <Button text="Purple" onAction="#SetPurple" styleClass="filters-button"/>
+            <Button text="Pink" onAction="#SetPink" styleClass="filters-button"/>
+            <Button text="Black and White" onAction="#SetBW" styleClass="filters-button"/>
         </HBox>
     </bottom>
 
