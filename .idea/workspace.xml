@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Merged with changes">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+
+    <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Added cropping feature">
+      <change afterPath="$PROJECT_DIR$/src/main/java/AppSrc/DrawCommand.java" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AppSrc/StartingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AppSrc/StartingScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AppSrc/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AppSrc/style.css" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

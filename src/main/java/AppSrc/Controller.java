@@ -1,9 +1,8 @@
 package AppSrc;
 
-//import Objects.Point2D;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Toggle;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -12,7 +11,6 @@ import java.io.File;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Slider;
 import javax.imageio.ImageIO;
-import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 
 import javafx.geometry.Point2D;
@@ -271,6 +269,179 @@ public class Controller implements Initializable {
         HighlightingRect.setHeight(0);
         CropButton.setSelected(false);
     }
+
+    // Marker buttons
+    @FXML
+    private ToggleButton RedMarker;
+    @FXML
+    private ToggleButton OrangeMarker;
+    @FXML
+    private ToggleButton YellowMarker;
+    @FXML
+    private ToggleButton GreenMarker;
+    @FXML
+    private ToggleButton BlueMarker;
+    @FXML
+    private ToggleButton PurpleMarker;
+    @FXML
+    private ToggleButton PinkMarker;
+    @FXML
+    private ToggleButton WhiteMarker;
+    @FXML
+    private ToggleButton BlackMarker;
+
+
+    @FXML
+    private void DrawRed() {
+        if(RedMarker.isSelected()){
+            DeselectButtons(RedMarker);
+            Draw(Color.RED);
+        }
+        else{
+            AppContext.AppScene.setOnMouseDragged(null);
+            AppContext.AppScene.setOnMouseReleased(null);
+        }
+    }
+    @FXML
+    private void DrawOrange() {
+        if(OrangeMarker.isSelected()){
+            DeselectButtons(OrangeMarker);
+            Draw(Color.ORANGE);
+        }
+        else{
+            AppContext.AppScene.setOnMouseDragged(null);
+            AppContext.AppScene.setOnMouseReleased(null);
+        }
+    }
+
+    @FXML
+    private void DrawYellow() {
+        if(YellowMarker.isSelected()){
+            DeselectButtons(YellowMarker);
+            Draw(Color.YELLOW);
+        }
+        else{
+            AppContext.AppScene.setOnMouseDragged(null);
+            AppContext.AppScene.setOnMouseReleased(null);
+        }
+    }
+
+    @FXML
+    private void DrawGreen() {
+        if(GreenMarker.isSelected()){
+            DeselectButtons(GreenMarker);
+            Draw(Color.GREEN);
+        }
+        else{
+            AppContext.AppScene.setOnMouseDragged(null);
+            AppContext.AppScene.setOnMouseReleased(null);
+        }
+    }
+
+    @FXML
+    private void DrawBlue() {
+        if(BlueMarker.isSelected()){
+            DeselectButtons(BlueMarker);
+            Draw(Color.BLUE);
+        }
+        else{
+            AppContext.AppScene.setOnMouseDragged(null);
+            AppContext.AppScene.setOnMouseReleased(null);
+        }
+    }
+
+    @FXML
+    private void DrawPurple() {
+        if(PurpleMarker.isSelected()){
+            DeselectButtons(PurpleMarker);
+            Draw(Color.PURPLE);
+        }
+        else{
+            AppContext.AppScene.setOnMouseDragged(null);
+            AppContext.AppScene.setOnMouseReleased(null);
+        }
+    }
+
+    @FXML
+    private void DrawPink() {
+        if(PinkMarker.isSelected()){
+            DeselectButtons(PinkMarker);
+            Draw(Color.PINK);
+        }
+        else{
+            AppContext.AppScene.setOnMouseDragged(null);
+            AppContext.AppScene.setOnMouseReleased(null);
+        }
+    }
+
+    @FXML
+    private void DrawBlack() {
+        if(BlackMarker.isSelected()){
+            DeselectButtons(BlackMarker);
+            Draw(Color.BLACK);
+        }
+        else{
+            AppContext.AppScene.setOnMouseDragged(null);
+            AppContext.AppScene.setOnMouseReleased(null);
+        }
+    }
+
+    @FXML
+    private void DrawWhite() {
+        if(WhiteMarker.isSelected()){
+            DeselectButtons(WhiteMarker);
+            Draw(Color.WHITE);
+        }
+        else{
+            AppContext.AppScene.setOnMouseDragged(null);
+            AppContext.AppScene.setOnMouseReleased(null);
+        }
+    }
+
+    private void Draw(Color MarkerColor){
+
+        if(AppContext.ImageLoaded){
+            AppContext.MarkerColor = MarkerColor;
+            AppContext.AppScene.setOnMouseDragged(this::HandleMouseDraggedDrawing);
+            AppContext.AppScene.setOnMouseReleased(this::HandleMouseReleasedDrawing);
+        }
+    }
+
+    private void DeselectButtons(ToggleButton CurrentButton){
+        ToggleButton[] markerButtons = {RedMarker, OrangeMarker, YellowMarker, GreenMarker, BlueMarker, PurpleMarker, PinkMarker, WhiteMarker, BlackMarker, CropButton};
+        for (ToggleButton markerButton : markerButtons) {
+            if (markerButton != CurrentButton) {
+                markerButton.setSelected(false);
+            }
+        }
+    }
+
+    private void HandleMouseDraggedDrawing(MouseEvent event) {
+
+        // Current position of the mouse
+        Point2D CurrentPixel = new Point2D(event.getSceneX(), event.getSceneY());
+        AppContext.MarkedPixels.add(CurrentPixel);
+
+    }
+    private void HandleMouseReleasedDrawing(MouseEvent event) {
+
+        // Get second cropping point
+        AppContext.CropPoint2 = new Point2D(event.getSceneX(), event.getSceneY());
+
+        AppContext.ImageTopLeft = imageView.localToScreen(0, 0);
+
+        Point2D ImageViewBottomRightScreen = imageView.localToScreen(imageView.getBoundsInLocal().getWidth(), imageView.getBoundsInLocal().getHeight());
+        AppContext.ImageWidth = ImageViewBottomRightScreen.getX() - AppContext.ImageTopLeft.getX();
+        AppContext.ImageHeight = ImageViewBottomRightScreen.getY() - AppContext.ImageTopLeft.getY();
+
+        DrawCommand newCommand = new DrawCommand(AppContext);
+        newCommand.Execute();
+        updateDisplayedImage();
+
+
+        AppContext.MarkedPixels.clear();
+    }
+
     private void updateDisplayedImage(){
         try {
             Image fxImage = AppContext.LoadedPhoto.toFXImage(AppContext.LoadedPhoto.DisplayedImage);

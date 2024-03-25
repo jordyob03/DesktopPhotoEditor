@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
+<?import javafx.scene.layout.GridPane?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="AppSrc.Controller"
@@ -63,8 +64,25 @@
             <Slider fx:id="contrastSlider" min="0" max="200" value="100" showTickLabels="false" showTickMarks="falss" majorTickUnit="10" minorTickCount="3" blockIncrement="5" styleClass="slider"/>
             <Label text="Exposure" styleClass="slider-label"/>
             <Slider fx:id="exposureSlider" min="0" max="200" value="100" showTickLabels="false" showTickMarks="false" majorTickUnit="10" minorTickCount="3" blockIncrement="5" styleClass="slider"/>
-            <ToggleButton fx:id= "CropButton" text="Crop" onAction="#Crop"/>
+            <ToggleButton fx:id= "CropButton" text="Crop" styleClass="cropping-button" onAction="#Crop"/>
+
+            <GridPane styleClass ="grid-pane">
+
+                <ToggleButton fx:id="RedMarker" onAction="#DrawRed" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="marker-button"/>
+                <ToggleButton fx:id="OrangeMarker" onAction="#DrawOrange" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="marker-button"/>
+                <ToggleButton fx:id="YellowMarker" onAction="#DrawYellow" GridPane.columnIndex="2" GridPane.rowIndex="1" styleClass="marker-button"/>
+                <ToggleButton fx:id="GreenMarker" onAction="#DrawGreen" GridPane.columnIndex="3" GridPane.rowIndex="1" styleClass="marker-button"/>
+                <ToggleButton fx:id="BlueMarker" onAction="#DrawBlue" GridPane.columnIndex="4" GridPane.rowIndex="1" styleClass="marker-button"/>
+                <ToggleButton fx:id="PurpleMarker" onAction="#DrawPurple" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="marker-button"/>
+                <ToggleButton fx:id="PinkMarker" onAction="#DrawPink" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="marker-button"/>
+                <ToggleButton fx:id="BlackMarker" onAction="#DrawBlack" GridPane.columnIndex="2" GridPane.rowIndex="2" styleClass="marker-button"/>
+                <ToggleButton fx:id="WhiteMarker" onAction="#DrawWhite" GridPane.columnIndex="3" GridPane.rowIndex="2" styleClass="marker-button"/>
+
+            </GridPane>
+
         </VBox>
+
+
     </right>
 
     <bottom>
