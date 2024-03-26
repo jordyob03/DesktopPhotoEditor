@@ -1,4 +1,4 @@
-# DesktopPhotoEditor Instructions to make a functional project
+# DesktopPhotoEditor Instructions to make a Functional Project
 
 Step 1: Install IntelliJ (Link for download: https://www.jetbrains.com/idea/download/?section=windows)
 Will have the selection to download for Mac, Windows or Linux. Download the version for your specific software
