@@ -6,11 +6,12 @@ public class BrightnessCommand extends Command {
 
     private Context AppContext;
 
-    // TODO: Implement contrast and exposure changes
+    private double BrightnessFactor;
+
     @Override
     public void Execute(){
 
-        double brightnessFactor = AppContext.BrightnessPercent / 100.0;
+        SetParams();
 
         BufferedImage originalImage = AppContext.LoadedPhoto.OriginalImage;
         BufferedImage newImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), originalImage.getType());
@@ -26,11 +27,10 @@ public class BrightnessCommand extends Command {
                 int Green = (RGB >> 8) & 0xFF;
                 int Blue = RGB & 0xFF;
 
-                Red = (int) (Red * brightnessFactor);
-                Green = (int) (Green * brightnessFactor);
-                Blue = (int) (Blue * brightnessFactor);
+                Red = (int) (Red * BrightnessFactor);
+                Green = (int) (Green * BrightnessFactor);
+                Blue = (int) (Blue * BrightnessFactor);
 
-                // Ensure that the values are within 0-255
                 Red = Math.min(Math.max(Red, 0), 255);
                 Green = Math.min(Math.max(Green, 0), 255);
                 Blue = Math.min(Math.max(Blue, 0), 255);
@@ -38,15 +38,24 @@ public class BrightnessCommand extends Command {
                 // Recombine
                 int AdjustedRGB = (Alpha << 24) | (Red << 16) | (Green << 8) | Blue;
                 newImage.setRGB(x, y, AdjustedRGB);
-
-
             }
         }
         AppContext.LoadedPhoto.DisplayedImage = newImage;
     }
 
+    @Override
+    public void SetParams(){
+        BrightnessFactor = AppContext.BrightnessPercent / 100.0;
+    }
     public  BrightnessCommand(Context context){
         this.AppContext = context;
+    }
+
+    // Out of scope
+    @Override
+    public void Undo(){
+
+
     }
 
 }

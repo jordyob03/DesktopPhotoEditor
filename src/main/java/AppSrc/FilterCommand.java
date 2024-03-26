@@ -1,7 +1,6 @@
 package AppSrc;
 
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
 
 public class FilterCommand extends Command {
 
@@ -24,7 +23,7 @@ public class FilterCommand extends Command {
         // Handle color filters
         if(AppContext.CurrentFilter != Filters.BLACKWHITE){
 
-            SetFactors();
+            SetParams();
             for (int x = 0; x < originalImage.getWidth(); x++) {
                 for (int y = 0; y < originalImage.getHeight(); y++) {
 
@@ -40,7 +39,6 @@ public class FilterCommand extends Command {
                     Green = (int) Green + GreenFactor;
                     Blue = (int) Blue + BlueFactor;
 
-                    // Ensure that the values are within 0-255
                     Red = Math.min(Math.max(Red, 0), 255);
                     Green = Math.min(Math.max(Green, 0), 255);
                     Blue = Math.min(Math.max(Blue, 0), 255);
@@ -85,9 +83,8 @@ public class FilterCommand extends Command {
         this.AppContext = context;
     }
 
-    // Set RGB factors according to color of filter
-    private void SetFactors() {
-
+    @Override
+    public void SetParams(){
         Filters filter = AppContext.CurrentFilter;
 
         switch (filter) {

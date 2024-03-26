@@ -4,11 +4,13 @@ import java.awt.image.BufferedImage;
 
 public class ContrastCommand extends Command {
     private Context AppContext;
+    private double ContrastFactor;
 
     @Override
     public void Execute() {
 
-        double ContrastFactor = (259.0*(255.0 + (AppContext.ContrastPercent - 100.0)))/(255.0*(259.0 - (AppContext.ContrastPercent - 100.0)));
+        SetParams();
+
         BufferedImage originalImage = AppContext.LoadedPhoto.OriginalImage;
         BufferedImage newImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), originalImage.getType());
 
@@ -39,6 +41,15 @@ public class ContrastCommand extends Command {
             }
         }
         AppContext.LoadedPhoto.DisplayedImage = newImage;
+    }
+
+    @Override
+    public void SetParams(){
+        ContrastFactor = (259.0*(255.0 + (AppContext.ContrastPercent - 100.0)))/(255.0*(259.0 - (AppContext.ContrastPercent - 100.0)));
+
+    }
+
+    public void Undo(){
     }
 
     public ContrastCommand(Context context) {

@@ -4,17 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Fixed UI">
+    <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Implemented Undo">
+      <change afterPath="$PROJECT_DIR$/src/main/java/InputMonitor/MouseEventHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/UIHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/BrightnessCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/BrightnessCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/ContrastCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/ContrastCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/CropCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/CropCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/DrawCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/DrawCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/ExposureCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/ExposureCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/FilterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/FilterCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Filters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Filters.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Photo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Point2D.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/AppSrc/StartingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AppSrc/StartingScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AppSrc/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AppSrc/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/CroppingIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/DrawingIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/LightingControlsIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Icons/PhotoFiltersIcon.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,6 +249,7 @@
     <MESSAGE value="Added contrast controls" />
     <MESSAGE value="Merged with changes" />
     <MESSAGE value="Fixed UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed UI" />
+    <MESSAGE value="Implemented Undo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Undo" />
   </component>
 </project>

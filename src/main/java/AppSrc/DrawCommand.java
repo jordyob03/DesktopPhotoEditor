@@ -6,16 +6,14 @@ import java.util.ArrayList;
 
 public class DrawCommand extends Command {
     private Context AppContext;
-
     ArrayList<Point2D> UpdatedPixels = new ArrayList<>();
-
     BufferedImage PreviousImage;
-    BufferedImage PreviousImageOriginal;
+    BufferedImage PreviousImageOriginal; // Previous image with no lighting changes made
 
     @Override
     public void Execute() {
 
-        // Set previous image to current so we can use the undo feature
+        // Set stored images for undo feature
         BufferedImage CurrentImage = AppContext.LoadedPhoto.DisplayedImage;
         PreviousImage = new BufferedImage(CurrentImage.getWidth(), CurrentImage.getHeight(), CurrentImage.getType());
         PreviousImage.getGraphics().drawImage(CurrentImage, 0, 0, null);
@@ -26,7 +24,7 @@ public class DrawCommand extends Command {
         BufferedImage NewImage = CurrentImage;
         BufferedImage NewOriginalImage = AppContext.LoadedPhoto.OriginalImage;
 
-        ConvertPoints();
+        SetParams();
 
         int Red = (int) (AppContext.MarkerColor.getRed() * 255);
         int Green = (int) (AppContext.MarkerColor.getGreen() * 255);
@@ -36,6 +34,7 @@ public class DrawCommand extends Command {
 
         for(Point2D Pixel : AppContext.MarkedPixels){
 
+            // Convert coordinate systems
             int ImagePixelX = (int) (Pixel.getX() * (CurrentImage.getWidth()/AppContext.ImageWidth));
             int ImagePixelY = (int) (Pixel.getY() * (CurrentImage.getHeight()/AppContext.ImageHeight));
 
@@ -75,7 +74,6 @@ public class DrawCommand extends Command {
                 NewOriginalImage.setRGB(ImagePixelX - 1, ImagePixelY - 1, rgb);
             }
         }
-
         AppContext.LoadedPhoto.DisplayedImage = NewImage;
         AppContext.LoadedPhoto.OriginalImage = NewOriginalImage;
     }
@@ -86,10 +84,11 @@ public class DrawCommand extends Command {
         AppContext.LoadedPhoto.OriginalImage = this.PreviousImageOriginal;
     }
 
-    private void ConvertPoints(){
-
+    @Override
+    public void SetParams(){
         for(Point2D Pixel : AppContext.MarkedPixels){
 
+            // Updating pixel coordinates with respect to the image
             Point2D UpdatedPixel = new Point2D(Pixel.getX() - AppContext.ImageTopLeft.getX(), Pixel.getY() - AppContext.ImageTopLeft.getY());
 
             // Add pixel if in image range

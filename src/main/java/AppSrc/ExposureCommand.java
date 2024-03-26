@@ -4,9 +4,10 @@ import java.awt.image.BufferedImage;
 
 public class ExposureCommand extends Command {
     private Context AppContext;
+    private double ExposureFactor;
     @Override
     public void Execute(){
-        double ExposureFactor = (AppContext.ExposurePercent/100.0) - 1;
+        SetParams();
         BufferedImage originalImage = AppContext.LoadedPhoto.OriginalImage;
         BufferedImage newImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), originalImage.getType());
 
@@ -25,8 +26,6 @@ public class ExposureCommand extends Command {
                 Green = (int) (Green * Math.pow(2,ExposureFactor));
                 Blue = (int) (Blue * Math.pow(2,ExposureFactor));
 
-
-                // Ensure that the values are within 0-255
                 Red = Math.min(Math.max(Red, 0), 255);
                 Green = Math.min(Math.max(Green, 0), 255);
                 Blue = Math.min(Math.max(Blue, 0), 255);
@@ -37,6 +36,11 @@ public class ExposureCommand extends Command {
             }
         }
         AppContext.LoadedPhoto.DisplayedImage = newImage;
+    }
+    @Override
+    public void SetParams(){
+        ExposureFactor = (AppContext.ExposurePercent/100.0) - 1;
+
     }
     public  ExposureCommand(Context context){
         this.AppContext = context;

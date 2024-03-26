@@ -53,86 +53,78 @@
 .cropping-button,
 .filters-button,
 .drawing-button {
-    -fx-background-color: #C5BBD6; /* Background color */
-    -fx-text-fill: white; /* Text color */
-    -fx-font-size: 14px; /* Font size */
-    -fx-padding: 8px 16px; /* Padding */
-    -fx-background-radius: 4px; /* Border radius */
-    -fx-border-radius: 4px; /* Border radius */
-    -fx-border-color: transparent; /* Border color */
+    -fx-background-color: #C5BBD6;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-border-color: transparent;
 }
 
 .cropping-button:hover,
 .filters-button:hover,
 .drawing-button:hover {
-    -fx-background-color: #ECB0C0 ; /* Background color on hover */
+    -fx-background-color: #ECB0C0 ;
 }
 
 .cropping-button:pressed,
 .filters-button:pressed,
 .drawing-button:pressed {
-    -fx-background-color: #ECB0C0 ; /* Background color when pressed */
+    -fx-background-color: #ECB0C0 ;
 }
 
 
-
-/* Style for the toggle buttons */
 .marker-button {
-    -fx-background-radius: 0; /* Remove border radius to make them squares */
-    -fx-min-width: 25px; /* Set the minimum width */
-    -fx-min-height: 25px; /* Set the minimum height */
-    -fx-max-width: 25px; /* Set the maximum width */
-    -fx-max-height: 25px; /* Set the maximum height */
-    -fx-background-color: transparent; /* Make the background transparent */
+    -fx-background-radius: 0;
+    -fx-min-width: 25px;
+    -fx-min-height: 25px;
+    -fx-max-width: 25px;
+    -fx-max-height: 25px;
+    -fx-background-color: transparent;
 }
 
 .marker-button:selected{
-    -fx-border-color: white; /* Add white border color */
+    -fx-border-color: white;
     -fx-border-width: 2px;
 }
 .grid-pane {
-    -fx-hgap: 10px; /* Horizontal spacing */
+    -fx-hgap: 10px;
     -fx-vgap: 10px;
 }
-/* Red toggle button */
+
 #RedMarker {
-    -fx-background-color: red; /* Set background color to red */
+    -fx-background-color: red;
 }
 
-/* Orange toggle button */
 #OrangeMarker {
-    -fx-background-color: orange; /* Set background color to orange */
+    -fx-background-color: orange;
 }
 
-/* Yellow toggle button */
 #YellowMarker {
-    -fx-background-color: yellow; /* Set background color to yellow */
+    -fx-background-color: yellow;
 }
 
-/* Green toggle button */
 #GreenMarker {
-    -fx-background-color: green; /* Set background color to green */
+    -fx-background-color: green;
 }
 
 #BlueMarker {
-    -fx-background-color: blue; /* Set background color to red */
+    -fx-background-color: blue;
 }
 
-/* Orange toggle button */
 #PurpleMarker {
-    -fx-background-color: purple; /* Set background color to orange */
+    -fx-background-color: purple;
 }
 
-/* Yellow toggle button */
 #PinkMarker {
-    -fx-background-color: pink; /* Set background color to yellow */
+    -fx-background-color: pink;
 }
 
-/* Green toggle button */
 #BlackMarker {
-    -fx-background-color: black; /* Set background color to green */
+    -fx-background-color: black;
 }
 
 #WhiteMarker {
-    -fx-background-color: white; /* Set background color to green */
+    -fx-background-color: white;
 }
