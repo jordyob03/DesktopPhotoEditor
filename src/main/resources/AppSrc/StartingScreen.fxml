@@ -34,7 +34,7 @@
                 </Menu>
                 <Menu text="Edit">
                     <items>
-                        <MenuItem text="Undo"/>
+                        <MenuItem text="Undo" onAction="#Undo"/>
                         <MenuItem text="Redo"/>
                     </items>
                 </Menu>

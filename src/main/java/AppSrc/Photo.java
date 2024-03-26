@@ -15,6 +15,10 @@ public class Photo {
 
     public BufferedImage DisplayedImage;
 
+    public BufferedImage DisplayedImageNoLighting;
+
+    public BufferedImage DisplayedImageWithFilter;
+
     public BufferedImage OriginalImage;
 
     public Photo(File PhotoFile){
@@ -22,6 +26,8 @@ public class Photo {
     try {
         OriginalImage = ImageIO.read(PhotoFile);
         DisplayedImage = OriginalImage;
+        DisplayedImageWithFilter = OriginalImage;
+        DisplayedImageNoLighting = OriginalImage;
     }
     catch(IOException e) {
 

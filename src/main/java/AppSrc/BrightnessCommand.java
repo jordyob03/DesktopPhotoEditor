@@ -14,6 +14,7 @@ public class BrightnessCommand extends Command {
 
         BufferedImage originalImage = AppContext.LoadedPhoto.OriginalImage;
         BufferedImage newImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), originalImage.getType());
+
         for (int x = 0; x < originalImage.getWidth(); x++) {
             for (int y = 0; y < originalImage.getHeight(); y++) {
 
@@ -47,9 +48,5 @@ public class BrightnessCommand extends Command {
     public  BrightnessCommand(Context context){
         this.AppContext = context;
     }
-
-
-
-
 
 }
