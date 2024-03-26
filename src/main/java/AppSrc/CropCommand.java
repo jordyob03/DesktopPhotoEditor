@@ -10,7 +10,7 @@ public class CropCommand extends Command {
     private double CropWidth;
     private double CropHeight;
     BufferedImage PreviousImage;
-    BufferedImage PreviousImageOriginal;
+    BufferedImage PreviousImageOriginal; // Previous image with no lighting changes
 
     @Override
     public void Execute() {
@@ -24,7 +24,7 @@ public class CropCommand extends Command {
         PreviousImageOriginal = new BufferedImage(AppContext.LoadedPhoto.OriginalImage.getWidth(), AppContext.LoadedPhoto.OriginalImage.getHeight(), AppContext.LoadedPhoto.OriginalImage.getType());
         PreviousImageOriginal.getGraphics().drawImage(AppContext.LoadedPhoto.OriginalImage, 0, 0, null);
 
-        CalcPoints();
+        SetParams();
 
         // Convert from screen coordinated to image pixel coordinates
         int ImageWidth = (int) (CropWidth * (CurrentImage.getWidth()/AppContext.ImageWidth));
@@ -43,12 +43,9 @@ public class CropCommand extends Command {
             AppContext.LoadedPhoto.DisplayedImage = newImage;
             AppContext.LoadedPhoto.OriginalImage = newImageOriginal;
         }
-
-
     }
-
-    private void CalcPoints(){
-
+    @Override
+    public void SetParams(){
         // Get crop points
         double cropMinX = Math.min(AppContext.CropPoint1.getX(), AppContext.CropPoint2.getX());
         double cropMaxX = Math.max(AppContext.CropPoint1.getX(), AppContext.CropPoint2.getX());

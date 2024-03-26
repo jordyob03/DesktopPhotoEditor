@@ -1,8 +1,8 @@
 package AppSrc;
 
+// Base command class
 public class Command {
-
-    public void Execute(){}
-    public void Undo(){}
-
+    void Execute(){};
+    void Undo(){};
+    void SetParams(){};
 }

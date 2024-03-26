@@ -1,5 +1,6 @@
 package AppSrc;
 
+// Enum of filters
 public enum Filters {
     RED,
     ORANGE,

@@ -1,12 +1,11 @@
 package AppSrc;
 
+import InputMonitor.MouseEventHandler;
+import UI.UIHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import java.util.ArrayList;
-
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.util.Stack;
 
@@ -15,44 +14,42 @@ public class Context {
 
     private static Context instance;
 
-    Scene AppScene;
-
-    public Stack<Command> CommandStack = new Stack<>();
-
-    public boolean ImageLoaded;
+    public Scene AppScene;
     public ImageView imageView;
 
-    public Color MarkerColor;
-    public boolean MarkerSelected;
+    // Command stack
+    public Stack<Command> CommandStack = new Stack<>();
 
-    public ArrayList<Point2D> MarkedPixels = new ArrayList<>();
+    // Handlers
+    public MouseEventHandler EventHandler = new MouseEventHandler();
+    public UI.UIHandler UIHandler = new UIHandler();
 
-    AnchorPane root;
-
+    // Image
+    public boolean ImageLoaded;
+    public Photo LoadedPhoto;
     public Point2D ImageTopLeft;
     public double ImageWidth = 0.0;
     public double ImageHeight = 0.0;
 
-
-    public int BrightnessPercent = 100;
-
+    // Lighting
+    public double BrightnessPercent = 100.0;
     public double ContrastPercent = 100.0;
-
     public double ExposurePercent = 100.0;
 
-    Filters CurrentFilter;
+    // Drawing
+    public Color MarkerColor;
+    public ArrayList<Point2D> MarkedPixels = new ArrayList<>();
 
-    public Photo LoadedPhoto; // Photo loaded into application
-    public String OpenedFilePath;
-    public String SaveFilePath;
+    // Filters
+    Filters CurrentFilter;
 
     // Cropping
     public Point2D CropPoint1;
     public Point2D CropPoint2;
 
-
     private Context() {
     }
+
     public static Context getInstance() {
         if (instance == null) {
             instance = new Context();
