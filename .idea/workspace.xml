@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9e55c85-3eb7-4850-b0b3-923820f006cc" name="Changes" comment="Fixed UI">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/BrightnessCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/BrightnessCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Context.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/CropCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/CropCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/DrawCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/DrawCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/FilterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/FilterCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppSrc/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppSrc/Photo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AppSrc/StartingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AppSrc/StartingScreen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1711375121436</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed UI">
+      <created>1711375302229</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711375302229</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

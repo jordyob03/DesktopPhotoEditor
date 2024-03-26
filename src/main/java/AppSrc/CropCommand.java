@@ -2,17 +2,27 @@ package AppSrc;
 
 import javafx.geometry.Point2D;
 import java.awt.image.BufferedImage;
+import java.nio.Buffer;
 
 public class CropCommand extends Command {
     private Context AppContext;
     private Point2D CropTopLeftScreen;
     private double CropWidth;
     private double CropHeight;
+    BufferedImage PreviousImage;
+    BufferedImage PreviousImageOriginal;
 
     @Override
     public void Execute() {
 
         BufferedImage CurrentImage = AppContext.LoadedPhoto.DisplayedImage;
+        BufferedImage CurrentOriginalImage = AppContext.LoadedPhoto.OriginalImage;
+
+        PreviousImage = new BufferedImage(CurrentImage.getWidth(), CurrentImage.getHeight(), CurrentImage.getType());
+        PreviousImage.getGraphics().drawImage(CurrentImage, 0, 0, null);
+
+        PreviousImageOriginal = new BufferedImage(AppContext.LoadedPhoto.OriginalImage.getWidth(), AppContext.LoadedPhoto.OriginalImage.getHeight(), AppContext.LoadedPhoto.OriginalImage.getType());
+        PreviousImageOriginal.getGraphics().drawImage(AppContext.LoadedPhoto.OriginalImage, 0, 0, null);
 
         CalcPoints();
 
@@ -27,9 +37,11 @@ public class CropCommand extends Command {
         if(ImageWidth != 0 && ImageHeight != 0){
 
             BufferedImage newImage = CurrentImage.getSubimage(ImageX, ImageY, ImageWidth, ImageHeight);
+            BufferedImage newImageOriginal = CurrentOriginalImage.getSubimage(ImageX, ImageY, ImageWidth, ImageHeight);
 
             // Update displayed image
             AppContext.LoadedPhoto.DisplayedImage = newImage;
+            AppContext.LoadedPhoto.OriginalImage = newImageOriginal;
         }
 
 
@@ -64,6 +76,12 @@ public class CropCommand extends Command {
 
         CropWidth = overlapWidth;
         CropHeight = overlapHeight;
+    }
+
+    @Override
+    public void Undo() {
+        AppContext.LoadedPhoto.DisplayedImage = this.PreviousImage;
+        AppContext.LoadedPhoto.OriginalImage = this.PreviousImageOriginal;
     }
 
     public CropCommand(Context context) {

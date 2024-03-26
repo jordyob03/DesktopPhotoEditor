@@ -70,6 +70,7 @@ public class Controller implements Initializable {
             updateDisplayedImage();
         });
 
+        // Cropping rectangle
         HighlightingRect = new Rectangle();
         HighlightingRect.setStroke(Color.WHITE);
         HighlightingRect.setStrokeWidth(1);
@@ -188,6 +189,7 @@ public class Controller implements Initializable {
 
         FilterCommand newCommand = new FilterCommand(AppContext);
         newCommand.Execute();
+        AppContext.CommandStack.push(newCommand);
         updateDisplayedImage();
     }
 
@@ -264,6 +266,7 @@ public class Controller implements Initializable {
         // Create cropping command
         CropCommand newCommand = new CropCommand(AppContext);
         newCommand.Execute();
+        AppContext.CommandStack.push(newCommand);
         updateDisplayedImage();
 
         HighlightingRect.setWidth(0);
@@ -437,10 +440,21 @@ public class Controller implements Initializable {
 
         DrawCommand newCommand = new DrawCommand(AppContext);
         newCommand.Execute();
+        AppContext.CommandStack.push(newCommand);
         updateDisplayedImage();
 
 
         AppContext.MarkedPixels.clear();
+    }
+
+    @FXML
+    private void Undo(){
+
+        if(!AppContext.CommandStack.isEmpty()){
+            Command LastCommand = AppContext.CommandStack.pop();
+            LastCommand.Undo();
+            updateDisplayedImage();
+        }
     }
 
     private void updateDisplayedImage(){

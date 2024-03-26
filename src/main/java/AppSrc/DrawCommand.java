@@ -9,12 +9,22 @@ public class DrawCommand extends Command {
 
     ArrayList<Point2D> UpdatedPixels = new ArrayList<>();
 
+    BufferedImage PreviousImage;
+    BufferedImage PreviousImageOriginal;
+
     @Override
     public void Execute() {
 
+        // Set previous image to current so we can use the undo feature
         BufferedImage CurrentImage = AppContext.LoadedPhoto.DisplayedImage;
+        PreviousImage = new BufferedImage(CurrentImage.getWidth(), CurrentImage.getHeight(), CurrentImage.getType());
+        PreviousImage.getGraphics().drawImage(CurrentImage, 0, 0, null);
+
+        PreviousImageOriginal = new BufferedImage(AppContext.LoadedPhoto.OriginalImage.getWidth(), AppContext.LoadedPhoto.OriginalImage.getHeight(), AppContext.LoadedPhoto.OriginalImage.getType());
+        PreviousImageOriginal.getGraphics().drawImage(AppContext.LoadedPhoto.OriginalImage, 0, 0, null);
 
         BufferedImage NewImage = CurrentImage;
+        BufferedImage NewOriginalImage = AppContext.LoadedPhoto.OriginalImage;
 
         ConvertPoints();
 
@@ -30,34 +40,50 @@ public class DrawCommand extends Command {
             int ImagePixelY = (int) (Pixel.getY() * (CurrentImage.getHeight()/AppContext.ImageHeight));
 
             NewImage.setRGB(ImagePixelX, ImagePixelY, rgb);
+            NewOriginalImage.setRGB(ImagePixelX, ImagePixelY, rgb);
 
             if (ImagePixelX + 1 < NewImage.getWidth()) {
                 NewImage.setRGB(ImagePixelX + 1, ImagePixelY, rgb);
+                NewOriginalImage.setRGB(ImagePixelX + 1, ImagePixelY, rgb);
             }
             if (ImagePixelX - 1 >= 0) {
                 NewImage.setRGB(ImagePixelX - 1, ImagePixelY, rgb);
+                NewOriginalImage.setRGB(ImagePixelX - 1, ImagePixelY, rgb);
             }
             if (ImagePixelY + 1 < NewImage.getHeight()) {
                 NewImage.setRGB(ImagePixelX, ImagePixelY + 1, rgb);
+                NewOriginalImage.setRGB(ImagePixelX, ImagePixelY + 1, rgb);
             }
             if (ImagePixelY - 1 >= 0) {
                 NewImage.setRGB(ImagePixelX, ImagePixelY - 1, rgb);
+                NewOriginalImage.setRGB(ImagePixelX, ImagePixelY - 1, rgb);
             }
             if (ImagePixelX + 1 < NewImage.getWidth() && ImagePixelY + 1 < NewImage.getHeight()) {
                 NewImage.setRGB(ImagePixelX + 1, ImagePixelY + 1, rgb);
+                NewOriginalImage.setRGB(ImagePixelX + 1, ImagePixelY + 1, rgb);
             }
             if (ImagePixelX + 1 < NewImage.getWidth() && ImagePixelY - 1 >= 0) {
                 NewImage.setRGB(ImagePixelX + 1, ImagePixelY - 1, rgb);
+                NewOriginalImage.setRGB(ImagePixelX + 1, ImagePixelY - 1, rgb);
             }
             if (ImagePixelX - 1 >= 0 && ImagePixelY + 1 < NewImage.getHeight()) {
                 NewImage.setRGB(ImagePixelX - 1, ImagePixelY + 1, rgb);
+                NewOriginalImage.setRGB(ImagePixelX - 1, ImagePixelY + 1, rgb);
             }
             if (ImagePixelX - 1 >= 0 && ImagePixelY - 1 >= 0) {
                 NewImage.setRGB(ImagePixelX - 1, ImagePixelY - 1, rgb);
+                NewOriginalImage.setRGB(ImagePixelX - 1, ImagePixelY - 1, rgb);
             }
         }
 
         AppContext.LoadedPhoto.DisplayedImage = NewImage;
+        AppContext.LoadedPhoto.OriginalImage = NewOriginalImage;
+    }
+
+    public void Undo(){
+        // Set displayed photo to previous
+        AppContext.LoadedPhoto.DisplayedImage = this.PreviousImage;
+        AppContext.LoadedPhoto.OriginalImage = this.PreviousImageOriginal;
     }
 
     private void ConvertPoints(){

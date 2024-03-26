@@ -6,10 +6,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
+import java.util.Stack;
 
 // Singleton class for current application context
 public class Context {
@@ -18,8 +17,7 @@ public class Context {
 
     Scene AppScene;
 
-    // Editing modes
-
+    public Stack<Command> CommandStack = new Stack<>();
 
     public boolean ImageLoaded;
     public ImageView imageView;

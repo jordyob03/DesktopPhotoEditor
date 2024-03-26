@@ -1,22 +1,30 @@
 package AppSrc;
 
 import java.awt.image.BufferedImage;
+import java.nio.Buffer;
 
 public class FilterCommand extends Command {
 
     private Context AppContext;
+
+    BufferedImage PreviousImage;
+
     int RedFactor;
     int GreenFactor;
     int BlueFactor;
 
     public void Execute(){
 
+        BufferedImage originalImage = AppContext.LoadedPhoto.OriginalImage;
+        BufferedImage newImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), originalImage.getType());
+
+        PreviousImage = new BufferedImage(AppContext.LoadedPhoto.DisplayedImage.getWidth(), AppContext.LoadedPhoto.DisplayedImage.getHeight(), AppContext.LoadedPhoto.DisplayedImage.getType());
+        PreviousImage.getGraphics().drawImage(AppContext.LoadedPhoto.DisplayedImage, 0, 0, null);
+
         // Handle color filters
         if(AppContext.CurrentFilter != Filters.BLACKWHITE){
 
             SetFactors();
-            BufferedImage originalImage = AppContext.LoadedPhoto.OriginalImage;
-            BufferedImage newImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), originalImage.getType());
             for (int x = 0; x < originalImage.getWidth(); x++) {
                 for (int y = 0; y < originalImage.getHeight(); y++) {
 
@@ -47,8 +55,6 @@ public class FilterCommand extends Command {
 
         if(AppContext.CurrentFilter == Filters.BLACKWHITE){
 
-            BufferedImage originalImage = AppContext.LoadedPhoto.OriginalImage;
-            BufferedImage newImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), originalImage.getType());
             for (int x = 0; x < originalImage.getWidth(); x++) {
                 for (int y = 0; y < originalImage.getHeight(); y++) {
 
@@ -123,5 +129,8 @@ public class FilterCommand extends Command {
         }
     }
 
-
+    @Override
+    public void Undo() {
+        AppContext.LoadedPhoto.DisplayedImage = this.PreviousImage;
+    }
 }
