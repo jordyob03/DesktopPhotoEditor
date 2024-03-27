@@ -20,7 +20,7 @@ Maven will come bundled with IntelliJ
 
 
 Open the IntelliJ application and click "Get from VCS"
-Enter https://github.com/jordyob03/DesktopPhotoEditor.git for the URL 
+Enter https://github.com/jordyob03/DesktopPhotoEditor.git for the URL,
 Hit clone
 
 
