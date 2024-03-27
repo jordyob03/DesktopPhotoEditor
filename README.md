@@ -33,20 +33,20 @@ Use the run button to run the program, a new window should open featuring the ap
 
 ## Using Maven 
 
-Clone the repository into the directory of your choice
-...bash
+Clone the repository into the directory of your choice:
+
 git clone https://github.com/jordyob03/DesktopPhotoEditor.git
-...
 
 
-Build the application 
-...bash 
+
+Build the application:
+
 mvn clean package
-...
 
 
-Run the application 
-...bash
+
+Run the application:
+
 java -jar target/PhotoEditorFX-1.0-SNAPSHOT.jar
-...
+
 
