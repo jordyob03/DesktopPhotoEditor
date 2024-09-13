@@ -38,11 +38,9 @@ Clone the repository into the directory of your choice:
 git clone https://github.com/jordyob03/DesktopPhotoEditor.git
 
 
-
 Build the application:
 
 mvn clean package
-
 
 
 Run the application:
