@@ -1,6 +1,6 @@
 # Desktop Photo Editor 
 
-Desktop application capable of making changes to saved images such as cropping, adding filters, modifying the lighting and drawing
+This is a desktop photo editor application that allows users to crop, change lighting settings, add filters and draw on any images saved to their computer. 
 
 # Requirements 
 
